@@ -1,5 +1,8 @@
 package com.example.demo.model;
 
+import lombok.Getter;
+
+@Getter
 public class Person {
     private String name;
     private String about;
@@ -9,17 +12,5 @@ public class Person {
         this.name = name;
         this.about = about;
         this.birthYear = birthYear;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public String getAbout() {
-        return about;
-    }
-
-    public int getBirthYear() {
-        return birthYear;
     }
 }
