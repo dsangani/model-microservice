@@ -19,19 +19,14 @@ import java.util.List;
 public class PersonController {
 
     @GetMapping("/person/{name}")
-    public String getPerson(@PathVariable(value="name") String name) {
+    public String getPerson(@PathVariable(value="name") String name) throws JsonProcessingException {
 
         if (RateLimiter.getInstance().rateLimit(name)) {
 
             Person person = DataStore.getInstance().getPerson(name);
 
             if (person != null) {
-                String json = "{\n";
-                json += "\"name\": " + JSONObject.quote(person.getName()) + ",\n";
-                json += "\"about\": " + JSONObject.quote(person.getAbout()) + ",\n";
-                json += "\"birthYear\": " + person.getBirthYear() + "\n";
-                json += "}";
-                return json;
+                return new ObjectMapper().writeValueAsString(person);
             } else {
                 //That person wasn't found, so return an empty JSON object. We could also return an error.
                 return name;

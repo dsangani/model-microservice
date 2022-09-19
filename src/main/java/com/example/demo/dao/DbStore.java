@@ -22,7 +22,8 @@ public class DbStore {
         return instance;
     }
 
-    private DbStore() {
+    //For tests only
+    public DbStore() {
         dbConnection = connect();
     }
 
