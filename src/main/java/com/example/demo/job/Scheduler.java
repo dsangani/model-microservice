@@ -16,7 +16,7 @@ public class Scheduler {
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss.SSS");
         Date now = new Date();
         String strDate = sdf.format(now);
-        ResultSet rs = DbStore.getInstance().connect().prepareStatement("select count(*) from person").executeQuery();
+        ResultSet rs = DbStore.getInstance().connect().prepareStatement("select count(*) from orders").executeQuery();
         rs.next();
         int count = rs.getInt(1);
         System.out.println("Java cron job expression:: " + strDate);

@@ -1,14 +1,15 @@
 package com.example.demo.model;
 
+import lombok.AllArgsConstructor;
 import lombok.Getter;
 
 import java.util.Date;
 
 @Getter
+@AllArgsConstructor
 public class Orders {
 
-    private Person person;
-    private Item item;
-    private Date date;
+    private String person;
+    private String item;
 
 }

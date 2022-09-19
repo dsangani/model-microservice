@@ -12,19 +12,24 @@ public class PersonService {
 
     Connection dbConnection;
 
-    PersonService(Connection connection) {
+    public PersonService(Connection connection) {
         dbConnection = connection;
     }
 
     public int getPersonIdByName(String name) throws SQLException {
 
         int id = 0;
-        PreparedStatement st = dbConnection.prepareStatement("SELECT id FROM Person where name = ?");
+        PreparedStatement st = dbConnection.prepareStatement("SELECT user_id FROM Person where name = ?");
         st.setString(1, name);
         ResultSet rs = st.executeQuery();
 
-        rs.next();
-        id = rs.getInt(1);
+        if (rs.next()) {
+            id = rs.getInt(1);
+        }
+
+        if (id==0) {
+            throw new RuntimeException("No user found");
+        }
 
         return id;
 

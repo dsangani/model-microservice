@@ -9,21 +9,23 @@ public class ItemService {
 
     Connection dbConnection;
 
-    ItemService(Connection connection) {
+    public ItemService(Connection connection) {
         dbConnection = connection;
     }
 
     public int getItemIdByName(String name) throws SQLException {
 
-        int id = 0;
-        PreparedStatement st = dbConnection.prepareStatement("SELECT id FROM Item where name = ?");
-        st.setString(1, name);
-        ResultSet rs = st.executeQuery();
+//        int id = 0;
+//        PreparedStatement st = dbConnection.prepareStatement("SELECT id FROM Item where name = ?");
+//        st.setString(1, name);
+//        ResultSet rs = st.executeQuery();
+//
+//        rs.next();
+//        id = rs.getInt(1);
+//
+//        return id;
 
-        rs.next();
-        id = rs.getInt(1);
-
-        return id;
+        return 5;
         
     }
 
