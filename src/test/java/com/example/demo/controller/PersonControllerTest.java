@@ -31,7 +31,7 @@ public class PersonControllerTest {
     public void getPersonNameIfFound() throws Exception {
         mvc.perform(MockMvcRequestBuilders.get("/person/Dhawal").accept(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk())
-                .andExpect(content().string(equalTo("{\n\"name\": \"Dhawal\",\n\"about\": \"Dhawal needs a raise\",\n\"birthYear\": 1987\n}")));
+                .andExpect(content().string(equalTo("{\"name\":\"Dhawal\",\"about\":\"Dhawal needs a raise\",\"birthYear\":1987}")));
     }
 
     @Test
